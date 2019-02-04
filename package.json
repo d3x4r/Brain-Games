@@ -1,8 +1,12 @@
 {
   "name": "brain-games-pckge",
   "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "console mini game",
+  "keywords": [
+    "hexlet",
+    "brain-games",
+    "console-game"
+  ],
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -13,7 +17,6 @@
   "files": [
     "dist"
   ],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
