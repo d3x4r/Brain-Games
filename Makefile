@@ -8,4 +8,4 @@ publish:
 	npm publish
 
 lint:
-	npx eslint src/*.js
+	npx eslint src/**/*.js

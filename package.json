@@ -1,6 +1,6 @@
 {
   "name": "brain-games-pckge",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "console mini game",
   "keywords": [
     "hexlet",
@@ -8,7 +8,8 @@
     "console-game"
   ],
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir dist --source-maps inline",
