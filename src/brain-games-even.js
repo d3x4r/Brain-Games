@@ -1,29 +1,29 @@
 import readlineSync from 'readline-sync';
-import getRandomNumber from './random-number';
+import getRandomNumber from './utils/random-number';
+import isEven from './utils/is-even';
 
+const evenGameDescription = 'Answer "yes" if number even otherwise answer "no".';
+const attempts = 3;
 
 export default (greetingFunction) => {
-  const evenGameDescription = 'Answer "yes" if number even otherwise answer "no".';
   const userName = greetingFunction(evenGameDescription);
 
   const iter = (acc) => {
-    if (acc === 3) {
-      return console.log(`Congratulations, ${userName}!`);
+    if (acc === attempts) {
+      console.log(`Congratulations, ${userName}!`);
+      return;
     }
 
-    const randomNumber = getRandomNumber(1, 100);
-    const answerValue = readlineSync.question(`Question: ${randomNumber} `);
-    const evenCheck = randomNumber % 2 === 0;
+    const question = getRandomNumber(1, 100);
+    const answer = readlineSync.question(`Question: ${question} `);
+    const correctAnswer = isEven(question) ? 'yes' : 'no';
 
-    if (answerValue === 'yes' && evenCheck) {
+    if (answer === correctAnswer) {
       console.log('Correct!');
-      return iter(acc + 1);
-    } if (answerValue === 'no' && evenCheck === false) {
-      console.log('Correct!');
-      return iter(acc + 1);
-    } const correctAnswer = evenCheck ? 'yes' : 'no';
-    console.log(`${answerValue} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${userName}!`);
-    return false;
+      iter(acc + 1);
+    } else {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${userName}!`);
+    }
   };
-  return iter(0);
+  iter(0);
 };
