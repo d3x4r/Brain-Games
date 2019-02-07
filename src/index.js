@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 import { evenGamePlay, evenGameDescription } from './games/even';
 import { calcGameplay, calcGameDescription } from './games/calc';
+import { gcdGameplay, gcdGameDescription } from './games/gcd';
 
 const attempts = 3;
 
@@ -41,4 +42,8 @@ export const evenGame = () => {
 
 export const calcGame = () => {
   createGame(calcGameDescription, calcGameplay);
+};
+
+export const gcdGame = () => {
+  createGame(gcdGameDescription, gcdGameplay);
 };
