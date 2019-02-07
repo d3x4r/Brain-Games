@@ -7,5 +7,8 @@
 ## install package
 [![asciicast](https://asciinema.org/a/cVkfVOjhYSFsH8SO2yECgg7wj.svg)](https://asciinema.org/a/cVkfVOjhYSFsH8SO2yECgg7wj)
 
-## how to play
+## brain-even gameplay
 [![asciicast](https://asciinema.org/a/PdosRlNl0dH9Qhmk7puOv3E5f.svg)](https://asciinema.org/a/PdosRlNl0dH9Qhmk7puOv3E5f)
+
+## brain-calc gameplay
+[![asciicast](https://asciinema.org/a/PbasMe6heMRaI2QCmMZIWQyNM.svg)](https://asciinema.org/a/PbasMe6heMRaI2QCmMZIWQyNM)
