@@ -12,3 +12,6 @@
 
 ## brain-calc gameplay
 [![asciicast](https://asciinema.org/a/PbasMe6heMRaI2QCmMZIWQyNM.svg)](https://asciinema.org/a/PbasMe6heMRaI2QCmMZIWQyNM)
+
+## brain-gcd gameplay
+[![asciicast](https://asciinema.org/a/Reiw3cJMzSQ3IG4wq1ibPTyuQ.svg)](https://asciinema.org/a/Reiw3cJMzSQ3IG4wq1ibPTyuQ)
