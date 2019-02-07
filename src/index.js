@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
-import { evenGamePlay, evenGameDescription } from './brain-games-even';
+import { evenGamePlay, evenGameDescription } from './games/even';
+import { calcGameplay, calcGameDescription } from './games/calc';
 
 const attempts = 3;
 
@@ -22,9 +23,12 @@ const createGame = (gameDescription, game) => {
       return;
     }
 
-    const gameResult = game(userName);
+    const gameResult = game();
     if (gameResult) {
+      console.log('Correct!');
       play(attempt + 1);
+    } else {
+      console.log(`Let's try again, ${userName}!`);
     }
   };
 
@@ -33,4 +37,8 @@ const createGame = (gameDescription, game) => {
 
 export const evenGame = () => {
   createGame(evenGameDescription, evenGamePlay);
+};
+
+export const calcGame = () => {
+  createGame(calcGameDescription, calcGameplay);
 };
