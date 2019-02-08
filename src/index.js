@@ -1,8 +1,5 @@
 import readlineSync from 'readline-sync';
-import { evenGamePlay, evenGameDescription } from './games/even';
-import { calcGameplay, calcGameDescription } from './games/calc';
-import { gcdGameplay, gcdGameDescription } from './games/gcd';
-import { progressionGameplay, progressionGameDescription } from './games/progression';
+import { car, cdr } from 'hexlet-pairs';
 
 const attempts = 3;
 
@@ -16,7 +13,7 @@ export const greeting = (gameDescription) => {
   return userName;
 };
 
-const createGame = (gameDescription, game) => {
+export const createGame = (gameDescription, data) => {
   const userName = greeting(gameDescription);
 
   const play = (attempt) => {
@@ -25,30 +22,19 @@ const createGame = (gameDescription, game) => {
       return;
     }
 
-    const gameResult = game();
-    if (gameResult) {
+    const gameData = data();
+    const question = car(gameData);
+    const answer = cdr(gameData);
+    const userAnswer = readlineSync.question(`Question: ${question} `);
+
+    if (+userAnswer === answer || userAnswer === answer) {
       console.log('Correct!');
       play(attempt + 1);
     } else {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${answer}.`);
       console.log(`Let's try again, ${userName}!`);
     }
   };
 
   play(0);
-};
-
-export const evenGame = () => {
-  createGame(evenGameDescription, evenGamePlay);
-};
-
-export const calcGame = () => {
-  createGame(calcGameDescription, calcGameplay);
-};
-
-export const gcdGame = () => {
-  createGame(gcdGameDescription, gcdGameplay);
-};
-
-export const progressionGame = () => {
-  createGame(progressionGameDescription, progressionGameplay);
 };

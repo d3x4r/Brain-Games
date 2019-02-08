@@ -1,19 +1,14 @@
-import readlineSync from 'readline-sync';
-import getRandomNumber from '../utils';
+import { cons } from 'hexlet-pairs';
+import randomNumber from '../utils';
+import { createGame } from '..';
 
-export const evenGameDescription = 'Answer "yes" if number even otherwise answer "no".';
-
+const evenGameDescription = 'Answer "yes" if number even otherwise answer "no".';
 const isEven = number => number % 2 === 0;
 
-export const evenGamePlay = () => {
-  const question = getRandomNumber(1, 100);
-  const answer = readlineSync.question(`Question: ${question} `);
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
-
-  if (answer === correctAnswer) {
-    return true;
-  }
-
-  console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
-  return false;
+const gameData = () => {
+  const question = randomNumber(1, 100);
+  const answer = isEven(question) ? 'yes' : 'no';
+  return cons(question, answer);
 };
+
+export default () => createGame(evenGameDescription, gameData);

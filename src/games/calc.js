@@ -1,7 +1,8 @@
-import readlineSync from 'readline-sync';
+import { cons } from 'hexlet-pairs';
 import randomNumber from '../utils';
+import { createGame } from '..';
 
-export const calcGameDescription = 'What is the result of the expression?';
+const calcGameDescription = 'What is the result of the expression?';
 
 const minValueQestion = 1;
 const maxValueQuestion = 10;
@@ -22,19 +23,13 @@ const calcAnswer = (firstNumber, secondNumber, operator) => {
   return firstNumber * secondNumber;
 };
 
-export const calcGameplay = () => {
+const gameData = () => {
   const firstValue = randomNumber(minValueQestion, maxValueQuestion);
   const secondValue = randomNumber(minValueQestion, maxValueQuestion);
   const operator = getOperator(questionOperators);
   const question = `${firstValue} ${operator} ${secondValue}`;
-
-  const answer = readlineSync.question(`Question: ${question} `);
-  const correctAnswer = calcAnswer(firstValue, secondValue, operator);
-
-  if (+answer === correctAnswer) {
-    return true;
-  }
-
-  console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
-  return false;
+  const answer = calcAnswer(firstValue, secondValue, operator);
+  return cons(question, answer);
 };
+
+export default () => createGame(calcGameDescription, gameData);

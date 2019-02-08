@@ -1,7 +1,8 @@
-import readlineSync from 'readline-sync';
+import { cons } from 'hexlet-pairs';
 import randomNumber from '../utils';
+import { createGame } from '..';
 
-export const progressionGameDescription = 'What number is missing in the progression?';
+const progressionGameDescription = 'What number is missing in the progression?';
 
 const progressionMinStartValue = 1;
 const progressionMaxStartValue = 50;
@@ -22,21 +23,13 @@ const createProgression = (startNumber, step, hideNumber) => {
   return iter(startNumber, 1);
 };
 
-export const progressionGameplay = () => {
+const gameData = () => {
   const startValue = randomNumber(progressionMinStartValue, progressionMaxStartValue);
   const progressionStep = randomNumber(progressionMinStartValue, progressionMaxStep);
   const chooseHideTarget = randomNumber(progressionMinStartValue, progressionMaxStep);
-
-  const progression = createProgression(startValue, progressionStep, chooseHideTarget);
-  const question = progression;
-
-  const answer = readlineSync.question(`Question: ${question} `);
-  const correctAnswer = progressionStep;
-
-  if (+answer === correctAnswer) {
-    return true;
-  }
-
-  console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
-  return false;
+  const question = createProgression(startValue, progressionStep, chooseHideTarget);
+  const answer = progressionStep;
+  return cons(question, answer);
 };
+
+export default () => createGame(progressionGameDescription, gameData);
