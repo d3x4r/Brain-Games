@@ -6,19 +6,20 @@ const progressionGameDescription = 'What number is missing in the progression?';
 
 const progressionMinStartValue = 1;
 const progressionMaxStartValue = 50;
+
 const progressionMaxStep = 12;
 const progressionLength = 10;
 
-const createProgression = (startNumber, step, hideNumber) => {
-  const iter = (progression, currentLength) => {
-    if (currentLength === progressionLength) {
+const createProgression = (startNumber, step, hideTarget) => {
+  const iter = (progression, currentStep) => {
+    if (currentStep === progressionLength) {
       return progression;
     }
-    let currentNumber = String(startNumber + step * currentLength);
-    if (currentLength === hideNumber) {
-      currentNumber = '..';
+    if (currentStep === hideTarget) {
+      return `${progression} ${iter('..', currentStep + 1)}`;
     }
-    return iter(`${progression} ${currentNumber}`, currentLength + 1);
+
+    return `${progression} ${iter(startNumber + (currentStep * step), currentStep + 1)}`;
   };
   return iter(startNumber, 1);
 };
@@ -26,9 +27,9 @@ const createProgression = (startNumber, step, hideNumber) => {
 const gameData = () => {
   const startValue = randomNumber(progressionMinStartValue, progressionMaxStartValue);
   const progressionStep = randomNumber(progressionMinStartValue, progressionMaxStep);
-  const chooseHideTarget = randomNumber(progressionMinStartValue, progressionMaxStep);
+  const chooseHideTarget = randomNumber(progressionMinStartValue, progressionLength - 1);
   const question = createProgression(startValue, progressionStep, chooseHideTarget);
-  const answer = progressionStep;
+  const answer = startValue + (progressionStep * chooseHideTarget);
   return cons(question, answer);
 };
 

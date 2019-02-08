@@ -15,12 +15,11 @@ const getOperator = (operators) => {
 };
 
 const calcAnswer = (firstNumber, secondNumber, operator) => {
-  if (operator === '+') {
-    return firstNumber + secondNumber;
-  } if (operator === '-') {
-    return firstNumber - secondNumber;
+  switch (operator) {
+    case '+': return firstNumber + secondNumber;
+    case '-': return firstNumber - secondNumber;
+    default: return firstNumber * secondNumber;
   }
-  return firstNumber * secondNumber;
 };
 
 const gameData = () => {

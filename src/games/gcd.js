@@ -6,9 +6,9 @@ const gcdGameDescription = 'Find the greatest common divisor of given numbers.';
 const minValueQestion = 1;
 const maxValueQuestion = 100;
 
-const getSmallestNumber = (a, b) => ((a > b) ? b : a);
-
 const findGcd = (firstNumber, secondNumber) => {
+  const getSmallestNumber = (a, b) => ((a > b) ? b : a);
+
   const possibleDivisor = getSmallestNumber(firstNumber, secondNumber);
   const iter = (divisor) => {
     if (firstNumber % divisor === 0 && secondNumber % divisor === 0) {
