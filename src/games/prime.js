@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import randomNumber from '../utils';
-import { createGame } from '..';
+import createGame from '..';
 
 const minQuestionValue = 1;
 const maxQuestionValue = 100;
