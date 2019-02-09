@@ -7,13 +7,17 @@ const maxQuestionValue = 100;
 
 const primeGameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isNatural = (number) => {
+const isPrime = (number) => {
+  if (number <= 1) {
+    return false;
+  }
+
   const iter = (startDivisor) => {
     if (startDivisor > number / 2) {
-      return 'yes';
+      return true;
     }
     if (number % startDivisor === 0) {
-      return 'no';
+      return false;
     }
     return iter(startDivisor + 1);
   };
@@ -22,7 +26,7 @@ const isNatural = (number) => {
 
 const gameData = () => {
   const question = randomNumber(minQuestionValue, maxQuestionValue);
-  const answer = isNatural(question);
+  const answer = isPrime(question) ? 'yes' : 'no';
   return cons(question, answer);
 };
 
