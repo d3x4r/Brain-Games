@@ -1,8 +1,13 @@
+# Проект Brain Games
+
+В рамках проекта реализован набор мини-игр, запускаемых из консоли. Эти игры похожи на то, что обычно называют "Brain Games".
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/0d4f37540081df79e8ad/maintainability)](https://codeclimate.com/github/d3x4r/project-lvl1-s438/maintainability)
-
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0d4f37540081df79e8ad/test_coverage)](https://codeclimate.com/github/d3x4r/project-lvl1-s438/test_coverage)
-
 [![Build Status](https://travis-ci.org/d3x4r/project-lvl1-s438.svg?branch=master)](https://travis-ci.org/d3x4r/project-lvl1-s438)
+
+## How to install
+    npm install -g brain-games-pckge
 
 ## install package
 [![asciicast](https://asciinema.org/a/cVkfVOjhYSFsH8SO2yECgg7wj.svg)](https://asciinema.org/a/cVkfVOjhYSFsH8SO2yECgg7wj)
